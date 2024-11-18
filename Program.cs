@@ -40,7 +40,7 @@ namespace Assignment3_1_2
         // Check for leap year with one if else statement
         static bool CheckForLeapYear(int yearToCheck)
         {
-            if ((yearToCheck % 4 == 0 && (yearToCheck % 100 == 0 && yearToCheck % 400 == 0)) || (yearToCheck % 4 == 0 && yearToCheck % 100 != 0))
+            if ( (yearToCheck % 4 == 0 && (yearToCheck % 100 != 0 || (yearToCheck % 100 == 0 && yearToCheck % 400 == 0))) )
             {
                 return true;
             }
