@@ -10,12 +10,14 @@ namespace Assignment3_1_2
             Console.WriteLine("Enter a year ex.(2016 equals True, 2018 equals false)");
             Console.Write("Year: ");
             int year = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(CheckForLeapYear(year));
+            Console.WriteLine($"Nested IfElse: { CheckForLeapYearNested(year) }");
+            Console.WriteLine();
+            Console.WriteLine($"One IfElse: { CheckForLeapYear(year) }");
         }
 
         // First rule out whether the year is divisible by 4, if not return false
         // If true, check if year is divisible by 100 and NOT divisible by 400, if this is true return false, else return true.
-        static bool CheckForLeapYear(int yearToCheck)
+        static bool CheckForLeapYearNested(int yearToCheck)
         {
             if (yearToCheck % 4 == 0)
             {
@@ -33,6 +35,19 @@ namespace Assignment3_1_2
                 return false;
             }
             
+        }
+
+        // Check for leap year with one if else statement
+        static bool CheckForLeapYear(int yearToCheck)
+        {
+            if ((yearToCheck % 4 == 0 && (yearToCheck % 100 == 0 && yearToCheck % 400 == 0)) || (yearToCheck % 4 == 0 && yearToCheck % 100 != 0))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
